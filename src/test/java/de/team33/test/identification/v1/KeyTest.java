@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 
 public class KeyTest {
 
-    private static final Key<String> KEY = new Key<>("KEY");
+    private static final Key<String> KEY = new Key<String>(){};
 
     @Test
     public final void to_String() {
-        assertEquals("KEY(de.team33.test.identification.v1.KeyTest.<clinit>(KeyTest.java:10))", KEY.toString());
+        assertEquals("de.team33.test.identification.v1.KeyTest.<clinit>(KeyTest.java:10)", KEY.toString());
     }
 }
