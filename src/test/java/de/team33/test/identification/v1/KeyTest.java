@@ -7,7 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class KeyTest {
 
-    private static final Key<String> KEY = new Key<String>(){};
+    private static final Key<String> KEY = new Key<String>() {
+    };
 
     @Test
     public final void to_String() {

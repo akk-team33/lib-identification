@@ -3,51 +3,44 @@ package de.team33.libs.identification.v1;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
-
 /**
  * Defines instances with an identity semantic and a string representation that points to the location
  * of its initialization in the code.
  */
-public class Unique
-{
+public class Unique {
 
-  private final String representation;
+    private final String representation;
 
-  /**
-   * Initializes an instance so that the {@link #toString()} method lets you infer where in the source code the
-   * instance was created.
-   */
-  public Unique()
-  {
-    final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-    final String className = getClass().getName();
-    final Predicate<StackTraceElement> predicate = ste -> className.equals(ste.getClassName());
-    final int index1 = indexOf(stackTrace, 0, predicate);
-    final int index2 = indexOf(stackTrace, index1, predicate.negate());
-    this.representation =
-      (0 > index2) ? ("unknown(" + Arrays.toString(stackTrace) + ")") : stackTrace[index2].toString();
-  }
-
-  private static int indexOf(final StackTraceElement[] stackTrace,
-                             final int start,
-                             final Predicate<StackTraceElement> predicate)
-  {
-    for ( int index = start; 0 <= index && index < stackTrace.length; ++index )
-    {
-      if (predicate.test(stackTrace[index]))
-      {
-        return index;
-      }
+    /**
+     * Initializes an instance so that the {@link #toString()} method lets you infer where in the source code the
+     * instance was created.
+     */
+    public Unique() {
+        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        final String className = getClass().getName();
+        final Predicate<StackTraceElement> predicate = ste -> className.equals(ste.getClassName());
+        final int index1 = indexOf(stackTrace, 0, predicate);
+        final int index2 = indexOf(stackTrace, index1, predicate.negate());
+        this.representation =
+                (0 > index2) ? ("unknown(" + Arrays.toString(stackTrace) + ")") : stackTrace[index2].toString();
     }
-    return -1;
-  }
 
-  /**
-   * Returns a string representation that allows conclusions about where in source code that instance was created.
-   */
-  @Override
-  public final String toString()
-  {
-    return representation;
-  }
+    private static int indexOf(final StackTraceElement[] stackTrace,
+                               final int start,
+                               final Predicate<StackTraceElement> predicate) {
+        for (int index = start; 0 <= index && index < stackTrace.length; ++index) {
+            if (predicate.test(stackTrace[index])) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Returns a string representation that allows conclusions about where in source code that instance was created.
+     */
+    @Override
+    public final String toString() {
+        return representation;
+    }
 }
