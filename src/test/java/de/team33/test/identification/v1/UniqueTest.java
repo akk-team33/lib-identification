@@ -13,11 +13,8 @@ public class UniqueTest {
     @Test
     public final void to_String() {
         assertEquals(
-
-                "de.team33.test.identification.v1.UniqueTest.<clinit>(UniqueTest.java:12)",
-
+                "de.team33.test.identification.v1.UniqueTest.<clinit>(UniqueTest.java:11)",
                 KEY.toString()
-
         );
     }
 }

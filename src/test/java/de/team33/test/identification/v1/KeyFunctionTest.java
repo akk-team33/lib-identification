@@ -21,8 +21,10 @@ public class KeyFunctionTest {
 
     @Test
     public final void to_String() {
-        assertEquals("de.team33.test.identification.v1.KeyFunctionTest.<clinit>(KeyFunctionTest.java:15)",
-                DATE.toString());
+        assertEquals(
+                "de.team33.test.identification.v1.KeyFunctionTest.<clinit>(KeyFunctionTest.java:14)",
+                DATE.toString()
+        );
     }
 
     @Test
