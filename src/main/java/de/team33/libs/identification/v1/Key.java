@@ -7,5 +7,6 @@ package de.team33.libs.identification.v1;
  *
  * <p>The string representation of an instance points to the location of its initialization in the code.</p>
  */
+@Deprecated
 public class Key<T> extends Unique {
 }

@@ -37,6 +37,23 @@ public class Unique {
     }
 
     /**
+     * This implementation uses and manifests the basic implementation, providing an identity hash code.
+     */
+    @Override
+    public final int hashCode() {
+        return super.hashCode();
+    }
+
+    /**
+     * This implementation uses and manifests the basic implementation.
+     * In this respect, only identical instances are equal.
+     */
+    @Override
+    public final boolean equals(final Object obj) {
+        return super.equals(obj);
+    }
+
+    /**
      * Returns a string representation that allows conclusions about where in source code that instance was created.
      */
     @Override
