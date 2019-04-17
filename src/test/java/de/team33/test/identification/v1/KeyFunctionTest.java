@@ -1,17 +1,15 @@
 package de.team33.test.identification.v1;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Date;
+
 import de.team33.libs.identification.v1.KeyFunction;
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.function.Function;
-
-import static org.junit.Assert.assertEquals;
-
-
 public class KeyFunctionTest {
 
-    private static Key<Date> DATE = new Key<>(KeyFunctionTest::newDate);
+    private static KeyFunction<KeyFunctionTest, Date> DATE = new KeyFunction<>(KeyFunctionTest::newDate);
 
     private long time = System.currentTimeMillis();
 
@@ -22,7 +20,7 @@ public class KeyFunctionTest {
     @Test
     public final void to_String() {
         assertEquals(
-                "de.team33.test.identification.v1.KeyFunctionTest.<clinit>(KeyFunctionTest.java:14)",
+                "de.team33.test.identification.v1.KeyFunctionTest.<clinit>(KeyFunctionTest.java:12)",
                 DATE.toString()
         );
     }
@@ -30,12 +28,5 @@ public class KeyFunctionTest {
     @Test
     public final void apply() {
         assertEquals(time, DATE.apply(this).getTime());
-    }
-
-    private static class Key<R> extends KeyFunction<KeyFunctionTest, R> {
-
-        private Key(final Function<KeyFunctionTest, R> inner) {
-            super(inner);
-        }
     }
 }
