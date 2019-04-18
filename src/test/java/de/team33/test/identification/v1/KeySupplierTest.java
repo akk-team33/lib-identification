@@ -8,8 +8,7 @@ import org.junit.Test;
 public class KeySupplierTest
 {
 
-    private static final KeySupplier<String> KEY = new KeySupplier<String>(() -> null) {
-    };
+    private static final KeySupplier<String> KEY = new KeySupplier<>(() -> null);
 
     @Test
     public final void to_String() {
