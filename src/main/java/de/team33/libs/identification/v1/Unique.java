@@ -18,7 +18,8 @@ public class Unique {
     public Unique() {
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final String className = getClass().getName();
-        final Predicate<StackTraceElement> predicate = ste -> className.equals(ste.getClassName());
+        final Predicate<StackTraceElement> predicate = ste ->
+                className.equals(ste.getClassName()) && "<init>".equals(ste.getMethodName());
         final int index1 = indexOf(stackTrace, 0, predicate);
         final int index2 = indexOf(stackTrace, index1, predicate.negate());
         this.representation =
